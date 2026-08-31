@@ -21,10 +21,6 @@ def extract_text_from_pdf(file_path):
     except Exception as e:
         return False, f"Error reading PDF: {e}"
 
-success, result = extract_text_from_pdf("sample_resume.pdf")
-print("Success:", success)
-print(result)
-
 
 def extract_text_from_docx(file_path):
     try:
@@ -44,10 +40,6 @@ def extract_text_from_docx(file_path):
     except Exception as e:
         return False, f"Error reading DOCX: {e}"
 
-success, result = extract_text_from_docx("sample_resume.docx")
-print("Success:", success)
-print(result)
-
 
 def parse_resume(file_path):
     extension = Path(file_path).suffix.lower()
@@ -58,9 +50,3 @@ def parse_resume(file_path):
         return extract_text_from_docx(file_path)
     else:
         return False, f"Unsupported file type: {extension}"
-
-success, result = parse_resume("sample_resume.pdf")
-print("PDF via dispatcher:", success)
-
-success, result = parse_resume("sample_resume.docx")
-print("DOCX via dispatcher:", success)
