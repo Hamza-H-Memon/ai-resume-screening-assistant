@@ -1,5 +1,6 @@
 import pdfplumber
 import docx
+from pathlib import Path
 
 def extract_text_from_pdf(file_path):
     try:
@@ -46,3 +47,20 @@ def extract_text_from_docx(file_path):
 success, result = extract_text_from_docx("sample_resume.docx")
 print("Success:", success)
 print(result)
+
+
+def parse_resume(file_path):
+    extension = Path(file_path).suffix.lower()
+
+    if extension == ".pdf":
+        return extract_text_from_pdf(file_path)
+    elif extension == ".docx":
+        return extract_text_from_docx(file_path)
+    else:
+        return False, f"Unsupported file type: {extension}"
+
+success, result = parse_resume("sample_resume.pdf")
+print("PDF via dispatcher:", success)
+
+success, result = parse_resume("sample_resume.docx")
+print("DOCX via dispatcher:", success)
