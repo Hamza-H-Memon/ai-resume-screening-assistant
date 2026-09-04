@@ -6,7 +6,7 @@ import anthropic
 load_dotenv()
 
 client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-
+ 
 
 def strip_json_fences(text):
     text = text.strip()
@@ -45,6 +45,7 @@ Return ONLY a JSON object with this exact shape, no other text, no markdown fenc
 
 Return only the JSON object."""
 
+
 def score_resume(resume_text, criteria):
     criteria_text = json.dumps(criteria)
 
@@ -72,3 +73,19 @@ def score_resume(resume_text, criteria):
             return False, "Failed to parse scoring JSON after retry."
 
     return False, "Unknown failure."
+
+
+def score_batch(resumes, criteria):
+    results = []
+
+    for filename, resume_text in resumes:
+        success, result = score_resume(resume_text, criteria)
+
+        if success:
+            result["filename"] = filename
+            results.append(result)
+        else:
+            results.append({"filename": filename, "overall_score": 0, "error": result})
+
+    results.sort(key=lambda r: r["overall_score"], reverse=True)
+    return results
