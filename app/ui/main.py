@@ -4,7 +4,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 import streamlit as st
 import tempfile
-import pandas as pd
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -51,13 +50,14 @@ if st.button("Run Screening"):
         if success and parsed_resumes:
             results = score_batch(parsed_resumes, criteria)
 
-            rows = []
-            for r in results:
-                rows.append({
-                    "Resume": r["filename"],
-                    "Score": r["overall_score"],
-                })
-
-            df = pd.DataFrame(rows)
             st.subheader("Results")
-            st.dataframe(df, hide_index=True)
+
+            for r in results:
+                st.write(f"**{r['filename']}** — Score: {r['overall_score']}")
+
+                with st.expander("View evidence"):
+                    for req in r["requirements"]:
+                        status = req["status"]
+                        st.write(f"**{req['requirement']}** — {status}")
+                        if req["evidence"]:
+                            st.caption(f"Evidence: \"{req['evidence']}\"")
