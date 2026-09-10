@@ -53,7 +53,19 @@ if st.button("Run Screening"):
             st.subheader("Results")
 
             for r in results:
-                st.write(f"**{r['filename']}** — Score: {r['overall_score']}")
+                score = r['overall_score']
+                if score > 80:
+                    color = "#d4edda"
+                elif score >= 50:
+                    color = "#fff3cd"
+                else:
+                    color = "#f8d7da"
+
+                st.markdown(
+                    f"<div style='background-color:{color}; padding:8px; border-radius:4px;'>"
+                    f"<b>{r['filename']}</b> — Score: {score}</div>",
+                    unsafe_allow_html=True
+                )
 
                 with st.expander("View evidence"):
                     for req in r["requirements"]:
