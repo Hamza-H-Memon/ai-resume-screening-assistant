@@ -1,0 +1,29 @@
+Job Description: The Marketing Reporting Analyst supports the marketing department by producing accurate reports and analysing data to evaluate the success of marketing activities.
+
+Responsibilities:
+
+Prepare regular marketing performance reports.
+
+Track leads, sales, engagement, and conversion metrics.
+
+Clean and validate marketing datasets.
+
+Build and update Excel or Power BI dashboards.
+
+Identify areas for improvement in marketing campaigns.
+
+Collaborate with marketing, sales, and business teams.
+
+Entry-Level Skills:
+
+Excel: PivotTables, VLOOKUP/XLOOKUP, charts.
+
+Basic SQL.
+
+Power BI or Tableau.
+
+Basic understanding of Google Analytics.
+
+Data cleaning and reporting.
+
+Communication and teamwork.
