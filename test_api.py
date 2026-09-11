@@ -1,11 +1,11 @@
 import requests
 
-with open("sample_jd.txt", "r", encoding="utf-8") as f:
+with open("data/sample_jds/sample_jd.txt", "r", encoding="utf-8") as f:
     jd_text = f.read()
 
 files = [
-    ("resumes", ("sample_resume.pdf", open("sample_resume.pdf", "rb"), "application/pdf")),
-    ("resumes", ("sample_resume.docx", open("sample_resume.docx", "rb"), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")),
+    ("resumes", ("sample_resume.pdf", open("data/sample_resumes/sample_resume.pdf", "rb"), "application/pdf")),
+    ("resumes", ("sample_resume.docx", open("data/sample_resumes/sample_resume.docx", "rb"), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")),
 ]
 
 data = {"jd_text": jd_text}

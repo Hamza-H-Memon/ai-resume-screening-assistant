@@ -6,15 +6,15 @@ from app.scoring.criteria_extraction import extract_criteria
 from app.scoring.scorer import score_batch, score_resume
 from app.scoring.anonymizer import anonymize_text
 
-with open("sample_jd.txt", "r", encoding="utf-8") as f:
+with open("data/sample_jds/sample_jd.txt", "r", encoding="utf-8") as f:
     jd_text = f.read()
 
 criteria_success, criteria = extract_criteria(jd_text)
 print("Criteria extracted:", criteria_success)
 print(criteria)
 
-pdf_success, pdf_text = parse_resume("sample_resume.pdf")
-docx_success, docx_text = parse_resume("sample_resume.docx")
+pdf_success, pdf_text = parse_resume("data/sample_resumes/sample_resume.pdf")
+docx_success, docx_text = parse_resume("data/sample_resumes/sample_resume.docx")
 
 resumes = []
 if pdf_success:
