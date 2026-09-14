@@ -28,8 +28,8 @@ This is a **decision-support tool for recruiters, not an automated hiring system
 ## Running locally
 
 ```bash
-git clone https://github.com/Hamza-H-Memon/ai-resume-screening-assistant.git
-cd ai-resume-screening-assistant
+git clone https://github.com/Hamza-H-Memon/AIResumeScreener.git
+cd AIResumeScreener
 
 python -m venv venv
 venv\Scripts\Activate.ps1      # Windows PowerShell
