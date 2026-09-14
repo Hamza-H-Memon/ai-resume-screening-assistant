@@ -61,7 +61,7 @@ This project includes a real evaluation, not just a working demo:
 - `evaluate.py` — runs every sample resume against every sample job description and prints ranked results, used to calculate a recruiter-agreement rate (manually comparing AI rankings against my own judgment)
 - `bias_audit.py` — a controlled-pair bias test: two resumes with byte-identical content except a name, scored both with and without anonymization
 
-Full findings — including a genuine recruiter-agreement percentage, three documented failure cases (score non-determinism, an intermittent JSON parsing failure, and a status-granularity limitation that caused an incorrect tie), and an honest discussion of what a single-run bias test can and can't prove — are in [`docs/case_study.md`](docs/case_study.md).
+Full findings — including a genuine recruiter-agreement percentage, three documented failure cases (score non-determinism, an intermittent JSON parsing failure, and a status-granularity limitation that caused an incorrect tie), and an honest discussion of what a single-run bias test can and can't prove are in [`docs/case_study.md`](docs/case_study.md).
 
 ## Known limitations
 
