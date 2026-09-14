@@ -12,7 +12,7 @@ This is a **decision-support tool for recruiters, not an automated hiring system
 
 1. **Parse** - extract raw text from PDF/DOCX resumes (`app/parsing/`)
 2. **Extract criteria** - Claude reads the job description and returns structured must-have / nice-to-have / experience / education requirements (`app/scoring/criteria_extraction.py`)
-3. **Score** - each resume is scored 0–100 against those criteria. For every requirement, the system returns a status (`MET` / `MISSING` / `INSUFFICIENT EVIDENCE`) and the exact resume text it's grounded in — the model is instructed not to invent evidence (`app/scoring/scorer.py`)
+3. **Score** - each resume is scored 0–100 against those criteria. For every requirement, the system returns a status (`MET` / `MISSING` / `INSUFFICIENT EVIDENCE`) and the exact resume text it's grounded in the model is instructed not to invent evidence (`app/scoring/scorer.py`)
 4. **Anonymize (optional)** - name, email, phone, and institution are redacted before scoring, so results can be compared with and without identifying details (`app/scoring/anonymizer.py`)
 5. **Serve** - a FastAPI backend (`app/api/main.py`) with endpoints for JD parsing, resume parsing, and batch scoring, plus a Streamlit UI (`app/ui/main.py`) for the actual recruiter-facing experience
 
